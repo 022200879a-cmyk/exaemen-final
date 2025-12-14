@@ -1,0 +1,42 @@
+name: flutter_aplicacion_12_main # Nombre del proyecto usado en las importaciones
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.9.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  
+  # DEPENDENCIAS PARA INTEGRATION_TEST
+  integration_test:
+    sdk: flutter
+  test: any
+  
+  # CORRECCIÓN DE INDENTACIÓN: Ahora alineado correctamente
+
+
+  # Dependencias de lints
+  flutter_lints: ^5.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
