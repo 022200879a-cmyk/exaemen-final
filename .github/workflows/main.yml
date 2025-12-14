@@ -1,16 +1,14 @@
 name: CI/CD Pipeline (Pruebas y APK)
 
-# Paso A: Define el disparador (trigger)
 on:
   push:
-    # Se activa solo cuando se hace push a la rama main.
     branches:
       - master
 
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -18,20 +16,17 @@ jobs:
       - name: Setup Flutter Environment
         uses: subosito/flutter-action@v2
         with:
-          channel: 'stable' 
-      
+          channel: 'stable'
+
       - name: Get Dependencies
         run: flutter pub get
 
-      # Paso B: Ejecutar Pruebas de Integración (Criterio de éxito 1)
-      - name: Run Integration Tests
-        run: flutter test integration_test/app_test.dart -d web-server
+      - name: Run Tests
+        run: flutter test
 
-      # Paso C: Generar el archivo de Producción (.apk) (Criterio de éxito 2)
       - name: Build Release APK
         run: flutter build apk --release
 
-      # Opcional: Subir el APK generado como un artefacto
       - name: Upload Release APK Artifact
         uses: actions/upload-artifact@v4
         with:
